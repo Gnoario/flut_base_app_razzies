@@ -103,4 +103,49 @@ void main() {
       );
     });
   });
+
+  group('ClientHttps Success Status Code', () {
+    test('GET METHOD should return a 200 code if success', () async {
+      clientHttpsAdapterMock.mockGetSuccess();
+      final response = await https.get(clientHttpsAdapterMock.path);
+      expect(response.statusCode, 200);
+    });
+
+    test('PUT METHOD should return a 204 code if success', () async {
+      clientHttpsAdapterMock.mockPutSuccess();
+      final response = await https.put(
+        clientHttpsAdapterMock.path,
+        data: clientHttpsAdapterMock.data,
+      );
+      expect(response.statusCode, 204);
+    });
+
+    test('DELETE METHOD should return a 200 code if success', () async {
+      clientHttpsAdapterMock.mockDeleteSuccess();
+      final response = await https.delete(
+        clientHttpsAdapterMock.path,
+        data: clientHttpsAdapterMock.data,
+      );
+      expect(response.statusCode, 200);
+    });
+
+    test('POST METHOD should return a 200 code if success', () async {
+      clientHttpsAdapterMock.mockPostSuccess();
+      final response = await https.post(
+        clientHttpsAdapterMock.path,
+        data: clientHttpsAdapterMock.data,
+      );
+      expect(response.statusCode, 200);
+    });
+
+    test('PATCH METHOD should return a 200 code if success', () async {
+      clientHttpsAdapterMock.mockPatchSuccess();
+      final response = await https.patch(
+        clientHttpsAdapterMock.path,
+        data: clientHttpsAdapterMock.data,
+      );
+      expect(response.statusCode, 200);
+    });
+  });
+
 }
