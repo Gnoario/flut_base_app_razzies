@@ -148,4 +148,45 @@ void main() {
     });
   });
 
+  group('ClientHttps return HandledException on Error', () {
+    test(
+        'GET METHOD should throws a instance of HandledException when receive a 500 status code',
+        () async {
+      clientHttpsAdapterMock.mockDatabaseError();
+      expect(() => https.get(clientHttpsAdapterMock.path),
+          throwsA(isA<HandledException>()));
+    });
+
+    test(
+        'GET METHOD should throws a instance of HandledException when receive a 503 status code',
+        () async {
+      clientHttpsAdapterMock.mockNetworkError();
+      expect(() => https.get(clientHttpsAdapterMock.path),
+          throwsA(isA<HandledException>()));
+    });
+
+    test(
+        'GET METHOD should throws a instance of HandledException when receive a 504 status code',
+        () async {
+      clientHttpsAdapterMock.mockTimeoutError();
+      expect(() => https.get(clientHttpsAdapterMock.path),
+          throwsA(isA<HandledException>()));
+    });
+
+    test(
+        'GET METHOD should throws a instance of HandledException when receive a 520 status code',
+        () async {
+      clientHttpsAdapterMock.mockUnknownError();
+      expect(() => https.get(clientHttpsAdapterMock.path),
+          throwsA(isA<HandledException>()));
+    });
+
+    test(
+        'GET METHOD should throws a instance of HandledException when receive a 400 status code',
+        () async {
+      clientHttpsAdapterMock.mockError();
+      expect(() => https.get(clientHttpsAdapterMock.path),
+          throwsA(isA<HandledException>()));
+    });
+  });
 }
