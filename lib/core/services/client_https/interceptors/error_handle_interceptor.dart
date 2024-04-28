@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-class ErrorsHandleInterceptors extends InterceptorsWrapper {
+class ErrorHandleInterceptor extends InterceptorsWrapper {
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     bool isStatusSuccess =

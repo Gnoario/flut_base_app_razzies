@@ -8,10 +8,10 @@ class ClientHttps extends ClientHttpsBaseImpl {
     super.httpClientAdapter,
   }) : super(
           BaseOptions(
-            baseUrl: BaseStringHelper.dev().baseUrl,
-            sendTimeout: BaseStringHelper.dev().timeout,
-            connectTimeout: BaseStringHelper.dev().timeout,
-            receiveTimeout: BaseStringHelper.dev().timeout,
+            baseUrl: BaseStringHelper.get().baseUrl,
+            sendTimeout: BaseStringHelper.get().timeout,
+            connectTimeout: BaseStringHelper.get().timeout,
+            receiveTimeout: BaseStringHelper.get().timeout,
           ),
         );
 }

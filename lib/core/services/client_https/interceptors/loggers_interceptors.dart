@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 
 class LoggersInterceptors extends InterceptorsWrapper {
   @override
-  void onError(DioError err, ErrorInterceptorHandler handler) {
+  void onError(DioException err, ErrorInterceptorHandler handler) {
     _log(
       tag: 'ERROR',
       message: err.error.toString(),

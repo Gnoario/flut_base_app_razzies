@@ -9,7 +9,7 @@ class BaseStringHelper {
     this.timeout = const Duration(seconds: 10),
   });
 
-  factory BaseStringHelper.dev() {
+  factory BaseStringHelper.get() {
     const baseUrl = "https://tools.texoit.com/backend-java/api";
     return BaseStringHelper(baseUrl: baseUrl);
   }
