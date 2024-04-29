@@ -69,5 +69,18 @@ void main() {
         throwsA(isA<HandledGenericException>()),
       );
     });
+
+    test('Should throw a HandledException', () async {
+      when(
+        datasource(),
+      ).thenThrow(
+        HandledException(),
+      );
+
+      expect(
+        () async => await usecase(),
+        throwsA(isA<HandledException>()),
+      );
+    });
   });
 }
