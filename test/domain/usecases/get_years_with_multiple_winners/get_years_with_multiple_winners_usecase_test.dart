@@ -25,8 +25,24 @@ void main() {
   });
 
   group('Success Cases', () {
-    test('Should return a YearlyWinnersCountDto normally', () async {
+    test('Should return a list of YearlyWinnersCountDto normally', () async {
       final winnersCount = yearlyWinnersCountMock.createList();
+      when(
+        datasource(),
+      ).thenAnswer(
+        (_) async => winnersCount,
+      );
+
+      final result = await usecase();
+
+      expect(result, winnersCount);
+    });
+
+    test('Should return a list of YearlyWinnersCountDto normally from json',
+        () async {
+      final winnersCount = yearlyWinnersCountMock.fromList(
+        yearlyWinnersCountMock.createYearlyWinnersCountListJson(),
+      );
       when(
         datasource(),
       ).thenAnswer(
