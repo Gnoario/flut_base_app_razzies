@@ -20,8 +20,8 @@ void main() {
 
   setUpAll(() {
     datasource = MockGetStudiosWithWinCountDatasource();
-    repository = GetStudionsWithWinCountImpRepository(datasource);
-    usecase = GetStudionsWithWinCountImpUsecase(repository);
+    repository = GetStudiosWithWinCountImpRepository(datasource);
+    usecase = GetStudiosWithWinCountImpUsecase(repository);
     studioWinCountMock = StudioWinCountMock();
   });
 
