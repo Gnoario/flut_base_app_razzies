@@ -37,5 +37,21 @@ void main() {
 
       expect(result, studiosWinCount);
     });
+
+    test('Should return a list of StudioWinCountDto normally from json',
+        () async {
+      final studiosWinCount = studioWinCountMock.fromList(
+        studioWinCountMock.createStudioWinCountListJson(),
+      );
+      when(
+        datasource(),
+      ).thenAnswer(
+        (_) async => studiosWinCount,
+      );
+
+      final result = await usecase();
+
+      expect(result, studiosWinCount);
+    });
   });
 }
