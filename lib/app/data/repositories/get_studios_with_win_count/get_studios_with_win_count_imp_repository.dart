@@ -5,11 +5,11 @@ import '../../datasources/get_studios_with_win_count/get_studios_with_win_count_
 import 'package:flut_base_app_razzies/app/domain/models/exceptions/handled_exception.dart';
 import 'package:flut_base_app_razzies/app/domain/models/exceptions/handled_generic_exception.dart';
 
-class GetStudionsWithWinCountImpRepository
+class GetStudiosWithWinCountImpRepository
     implements GetStudiosWithWinCountRepository {
   final GetStudiosWithWinCountDatasource _getStudionsWithWinCountDatasource;
 
-  GetStudionsWithWinCountImpRepository(this._getStudionsWithWinCountDatasource);
+  GetStudiosWithWinCountImpRepository(this._getStudionsWithWinCountDatasource);
 
   @override
   Future<List<StudioWinCountDto>> call() async {
