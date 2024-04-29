@@ -1,5 +1,7 @@
 import 'package:flut_base_app_razzies/app/data/datasources/get_max_min_win_interval_for_producers/get_max_min_win_interval_for_producers_datasource.dart';
 import 'package:flut_base_app_razzies/app/data/repositories/get_max_min_win_interval_for_producers/get_max_min_win_interval_for_producers_imp_repository.dart';
+import 'package:flut_base_app_razzies/app/domain/models/exceptions/exceptions.dart';
+import 'package:flut_base_app_razzies/app/domain/models/exceptions/handled_exception.dart';
 import 'package:flut_base_app_razzies/app/domain/repositories/get_max_min_win_interval_for_producers/get_max_min_win_interval_for_producers_repository.dart';
 import 'package:flut_base_app_razzies/app/domain/usecases/get_max_min_win_interval_for_producers/get_max_min_win_interval_for_producers_imp_usecase.dart';
 import 'package:flut_base_app_razzies/app/domain/usecases/get_max_min_win_interval_for_producers/get_max_min_win_interval_for_producers_usecase.dart';
@@ -40,6 +42,36 @@ void main() {
       when(datasource()).thenAnswer((_) async => awardsMock);
       final result = await usecase();
       expect(result, awardsMock);
+    });
+  });
+
+  group('Throws Cases', () {
+    test('Should throw a HandledException when json conversion failed',
+        () async {
+      when(
+        datasource(),
+      ).thenAnswer(
+        (_) async => awardsIntervalMock.fromJson(
+          awardsIntervalMock.createAwardsIntervalDtoJsonWithError(),
+        ),
+      );
+
+      expect(
+        () async => await usecase(),
+        throwsA(isA<HandledException>()),
+      );
+    });
+
+    test('Should throw a HandledGenericException when something goes wrong',
+        () async {
+      when(datasource()).thenThrow(Exception());
+      expect(
+          () async => await usecase(), throwsA(isA<HandledGenericException>()));
+    });
+
+    test('Should throw a HandledException when something goes wrong', () async {
+      when(datasource()).thenThrow(HandledException());
+      expect(() async => await usecase(), throwsA(isA<HandledException>()));
     });
   });
 }
