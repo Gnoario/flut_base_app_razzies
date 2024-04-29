@@ -23,4 +23,140 @@ void main() {
     usecase = GetMoviesImpUsecase(repository);
     paginatedMoviesMock = PaginatedMoviesMock();
   });
+
+  group('Success Cases', () {
+    test('Should return a PaginatedMoviesDto normally', () async {
+      final moviesMock = paginatedMoviesMock.create();
+      when(
+        datasource(
+          query: anyNamed('query'),
+        ),
+      ).thenAnswer((_) async => moviesMock);
+
+      final result = await usecase(
+        pagination: paginatedMoviesMock.createPaginationMock(),
+        year: paginatedMoviesMock.createRandomYear(),
+        winner: paginatedMoviesMock.createRandomWinner(),
+      );
+
+      expect(result, moviesMock);
+    });
+
+    test('Should return a PaginatedMoviesDto normally from json', () async {
+      final moviesMock = paginatedMoviesMock.fromJson(
+        paginatedMoviesMock.createPaginatedMoviesJson(),
+      );
+      when(
+        datasource(
+          query: anyNamed('query'),
+        ),
+      ).thenAnswer(
+        (_) async => moviesMock,
+      );
+
+      final result = await usecase(
+        pagination: paginatedMoviesMock.createPaginationMock(),
+        year: paginatedMoviesMock.createRandomYear(),
+        winner: paginatedMoviesMock.createRandomWinner(),
+      );
+
+      expect(result, moviesMock);
+    });
+
+    test('Should send the correct queries to the datasource', () async {
+      final year = paginatedMoviesMock.createRandomYear();
+      final winner = paginatedMoviesMock.createRandomWinner();
+      final pagination = paginatedMoviesMock.createPaginationMock();
+      when(
+        datasource(
+          query: anyNamed('query'),
+        ),
+      ).thenAnswer(
+        (_) async => paginatedMoviesMock.create(),
+      );
+
+      await usecase(
+        pagination: pagination,
+        year: year,
+        winner: winner,
+      );
+
+      var expectedQuery =
+          '?page=${pagination.number}&size=${pagination.size}&year=$year&winner=$winner';
+      verify(
+        datasource(query: expectedQuery),
+      ).called(1);
+    });
+
+    test(
+        'Should send the correct pagination and year queries to the datasource',
+        () async {
+      final year = paginatedMoviesMock.createRandomYear();
+      final pagination = paginatedMoviesMock.createPaginationMock();
+      when(
+        datasource(
+          query: anyNamed('query'),
+        ),
+      ).thenAnswer(
+        (_) async => paginatedMoviesMock.create(),
+      );
+
+      await usecase(
+        pagination: pagination,
+        year: year,
+      );
+
+      var expectedQuery =
+          '?page=${pagination.number}&size=${pagination.size}&year=$year';
+      verify(
+        datasource(query: expectedQuery),
+      ).called(1);
+    });
+
+    test(
+        'Should send the correct pagination and winner queries to the datasource',
+        () async {
+      final winner = paginatedMoviesMock.createRandomWinner();
+      final pagination = paginatedMoviesMock.createPaginationMock();
+      when(
+        datasource(
+          query: anyNamed('query'),
+        ),
+      ).thenAnswer(
+        (_) async => paginatedMoviesMock.create(),
+      );
+
+      await usecase(
+        pagination: pagination,
+        winner: winner,
+      );
+
+      var expectedQuery =
+          '?page=${pagination.number}&size=${pagination.size}&winner=$winner';
+      verify(
+        datasource(query: expectedQuery),
+      ).called(1);
+    });
+
+    test('Should send the correct pagination query to the datasource',
+        () async {
+      final pagination = paginatedMoviesMock.createPaginationMock();
+      when(
+        datasource(
+          query: anyNamed('query'),
+        ),
+      ).thenAnswer(
+        (_) async => paginatedMoviesMock.create(),
+      );
+
+      await usecase(
+        pagination: pagination,
+      );
+
+      var expectedQuery = '?page=${pagination.number}&size=${pagination.size}';
+      verify(
+        datasource(query: expectedQuery),
+      ).called(1);
+    });
+  });
 }
