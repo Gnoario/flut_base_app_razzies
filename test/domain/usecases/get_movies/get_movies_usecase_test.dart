@@ -161,7 +161,7 @@ void main() {
   });
 
   group('Throws Cases', () {
-    test('Should return a HandledException when json conversion failed',
+    test('Should throw a HandledException when json conversion failed',
         () async {
       when(
         datasource(

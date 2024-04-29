@@ -24,6 +24,11 @@ class AppModule extends Module {
         i(),
       );
     });
+    i.addLazySingleton<GetYearsWithMultipleWinnersImpDatasource>(() async {
+      return GetYearsWithMultipleWinnersImpDatasource(
+        i(),
+      );
+    });
 
     //repositories
     i.addLazySingleton<GetMoviesImpRepository>(() async {
@@ -31,10 +36,20 @@ class AppModule extends Module {
         i(),
       );
     });
+    i.addLazySingleton<GetYearsWithMultipleWinnersImpRepository>(() async {
+      return GetYearsWithMultipleWinnersImpRepository(
+        i(),
+      );
+    });
 
     //usecases
     i.addLazySingleton<GetMoviesImpUsecase>(() async {
       return GetMoviesImpUsecase(
+        i(),
+      );
+    });
+    i.addLazySingleton<GetYearsWithMultipleWinnersImpUsecase>(() async {
+      return GetYearsWithMultipleWinnersImpUsecase(
         i(),
       );
     });
