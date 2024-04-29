@@ -32,5 +32,14 @@ void main() {
       final result = await usecase();
       expect(result, awardsMock);
     });
+
+    test('Should return a AwardsIntervalDto normally from json', () async {
+      final awardsMock = awardsIntervalMock.fromJson(
+        awardsIntervalMock.createAwardsIntervalJson(),
+      );
+      when(datasource()).thenAnswer((_) async => awardsMock);
+      final result = await usecase();
+      expect(result, awardsMock);
+    });
   });
 }
