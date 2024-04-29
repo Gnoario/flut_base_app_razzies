@@ -4,3 +4,5 @@ export 'get_years_with_multiple_winners/get_years_with_multiple_winners_imp_usec
 export 'get_years_with_multiple_winners/get_years_with_multiple_winners_usecase.dart';
 export 'get_studios_with_win_count/get_studios_with_win_count_imp_usecase.dart';
 export 'get_studios_with_win_count/get_studios_with_win_count_usecase.dart';
+export 'get_max_min_win_interval_for_producers/get_max_min_win_interval_for_producers_imp_usecase.dart';
+export 'get_max_min_win_interval_for_producers/get_max_min_win_interval_for_producers_usecase.dart';
