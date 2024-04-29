@@ -7,6 +7,8 @@ import 'dart:async' as _i3;
 
 import 'package:flut_base_app_razzies/app/data/datasources/get_years_with_multiple_winners/get_years_with_multiple_winners_datasource.dart'
     as _i2;
+import 'package:flut_base_app_razzies/app/domain/models/dtos/yearly_winners_count_dto/yearly_winners_count_dto.dart'
+    as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -32,12 +34,12 @@ class MockGetYearsWithMultipleWinnersDatasource extends _i1.Mock
   }
 
   @override
-  _i3.Future<void> call() => (super.noSuchMethod(
+  _i3.Future<List<_i4.YearlyWinnersCountDto>> call() => (super.noSuchMethod(
         Invocation.method(
           #call,
           [],
         ),
-        returnValue: _i3.Future<void>.value(),
-        returnValueForMissingStub: _i3.Future<void>.value(),
-      ) as _i3.Future<void>);
+        returnValue: _i3.Future<List<_i4.YearlyWinnersCountDto>>.value(
+            <_i4.YearlyWinnersCountDto>[]),
+      ) as _i3.Future<List<_i4.YearlyWinnersCountDto>>);
 }
