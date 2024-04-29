@@ -1,5 +1,6 @@
 import 'package:flut_base_app_razzies/app/data/datasources/get_years_with_multiple_winners/get_years_with_multiple_winners_datasource.dart';
 import 'package:flut_base_app_razzies/app/data/repositories/get_years_with_multiple_winners/get_years_with_multiple_winners_imp_repository.dart';
+import 'package:flut_base_app_razzies/app/domain/models/exceptions/exceptions.dart';
 import 'package:flut_base_app_razzies/app/domain/repositories/get_years_with_multiple_winners/get_years_with_multiple_winners_repository.dart';
 import 'package:flut_base_app_razzies/app/domain/usecases/get_years_with_multiple_winners/get_years_with_multiple_winners_imp_usecase.dart';
 import 'package:flut_base_app_razzies/app/domain/usecases/get_years_with_multiple_winners/get_years_with_multiple_winners_usecase.dart';
@@ -52,6 +53,21 @@ void main() {
       final result = await usecase();
 
       expect(result, winnersCount);
+    });
+  });
+
+  group('Throw cases', () {
+    test('Should throw a HandledGenericException', () async {
+      when(
+        datasource(),
+      ).thenThrow(
+        Exception(),
+      );
+
+      expect(
+        () async => await usecase(),
+        throwsA(isA<HandledGenericException>()),
+      );
     });
   });
 }
