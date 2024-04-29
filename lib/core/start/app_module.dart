@@ -39,6 +39,11 @@ class AppModule extends Module {
         i(),
       );
     });
+    i.addLazySingleton<GetWinnerPerYearImpDatasource>(() async {
+      return GetWinnerPerYearImpDatasource(
+        i(),
+      );
+    });
 
     //repositories
     i.addLazySingleton<GetMoviesImpRepository>(() async {
@@ -61,6 +66,11 @@ class AppModule extends Module {
         i(),
       );
     });
+    i.addLazySingleton<GetWinnerPerYearImpRepository>(() async {
+      return GetWinnerPerYearImpRepository(
+        i(),
+      );
+    });
 
     //usecases
     i.addLazySingleton<GetMoviesImpUsecase>(() async {
@@ -80,6 +90,11 @@ class AppModule extends Module {
     });
     i.addLazySingleton<GetMaxMinWinIntervalForProducersImpUsecase>(() async {
       return GetMaxMinWinIntervalForProducersImpUsecase(
+        i(),
+      );
+    });
+    i.addLazySingleton<GetWinnerPerYearImpUsecase>(() async {
+      return GetWinnerPerYearImpUsecase(
         i(),
       );
     });
