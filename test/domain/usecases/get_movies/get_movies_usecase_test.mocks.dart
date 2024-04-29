@@ -9,10 +9,6 @@ import 'package:flut_base_app_razzies/app/data/datasources/get_movies/get_movies
     as _i3;
 import 'package:flut_base_app_razzies/app/domain/models/dtos/movie/paginated_movies_dto.dart'
     as _i2;
-import 'package:flut_base_app_razzies/app/domain/models/dtos/pagination/pagination_dto.dart'
-    as _i6;
-import 'package:flut_base_app_razzies/app/domain/usecases/get_movies/get_movies_usecase.dart'
-    as _i5;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -28,9 +24,9 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
-class _FakePaginatedMovies_0 extends _i1.SmartFake
+class _FakePaginatedMoviesDto_0 extends _i1.SmartFake
     implements _i2.PaginatedMoviesDto {
-  _FakePaginatedMovies_0(
+  _FakePaginatedMoviesDto_0(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -57,52 +53,12 @@ class MockGetMoviesDatasource extends _i1.Mock
           {#query: query},
         ),
         returnValue:
-            _i4.Future<_i2.PaginatedMoviesDto>.value(_FakePaginatedMovies_0(
+            _i4.Future<_i2.PaginatedMoviesDto>.value(_FakePaginatedMoviesDto_0(
           this,
           Invocation.method(
             #call,
             [],
             {#query: query},
-          ),
-        )),
-      ) as _i4.Future<_i2.PaginatedMoviesDto>);
-}
-
-/// A class which mocks [GetMoviesUsecase].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockGetMoviesUsecase extends _i1.Mock implements _i5.GetMoviesUsecase {
-  MockGetMoviesUsecase() {
-    _i1.throwOnMissingStub(this);
-  }
-
-  @override
-  _i4.Future<_i2.PaginatedMoviesDto> call({
-    required _i6.PaginationDto? pagination,
-    int? year,
-    bool? winner,
-  }) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #call,
-          [],
-          {
-            #pagination: pagination,
-            #year: year,
-            #winner: winner,
-          },
-        ),
-        returnValue:
-            _i4.Future<_i2.PaginatedMoviesDto>.value(_FakePaginatedMovies_0(
-          this,
-          Invocation.method(
-            #call,
-            [],
-            {
-              #pagination: pagination,
-              #year: year,
-              #winner: winner,
-            },
           ),
         )),
       ) as _i4.Future<_i2.PaginatedMoviesDto>);
