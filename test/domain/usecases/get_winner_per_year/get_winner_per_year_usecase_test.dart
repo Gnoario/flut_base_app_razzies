@@ -32,5 +32,21 @@ void main() {
       final result = await usecase(year: 2021);
       expect(result, movieMock);
     });
+
+    test('Should return a MovieDto normally from json', () async {
+      final movieMock = mock.fromJson(
+        mock.createMovieJson(),
+      );
+      final year = mock.createRandomYear();
+      when(
+        datasource(year: year),
+      ).thenAnswer(
+        (_) async => movieMock,
+      );
+
+      final result = await usecase(year: year);
+
+      expect(result, movieMock);
+    });
   });
 }
