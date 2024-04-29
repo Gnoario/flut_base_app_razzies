@@ -3,9 +3,11 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i3;
+import 'dart:async' as _i4;
 
 import 'package:flut_base_app_razzies/app/data/datasources/get_max_min_win_interval_for_producers/get_max_min_win_interval_for_producers_datasource.dart'
+    as _i3;
+import 'package:flut_base_app_razzies/app/domain/models/dtos/awards_interval/awards_interval_dto.dart'
     as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
@@ -22,22 +24,39 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
+class _FakeAwardsIntervalDto_0 extends _i1.SmartFake
+    implements _i2.AwardsIntervalDto {
+  _FakeAwardsIntervalDto_0(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [GetMaxMinWinIntervalForProducersDatasource].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockGetMaxMinWinIntervalForProducersDatasource extends _i1.Mock
-    implements _i2.GetMaxMinWinIntervalForProducersDatasource {
+    implements _i3.GetMaxMinWinIntervalForProducersDatasource {
   MockGetMaxMinWinIntervalForProducersDatasource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i3.Future<void> call() => (super.noSuchMethod(
+  _i4.Future<_i2.AwardsIntervalDto> call() => (super.noSuchMethod(
         Invocation.method(
           #call,
           [],
         ),
-        returnValue: _i3.Future<void>.value(),
-        returnValueForMissingStub: _i3.Future<void>.value(),
-      ) as _i3.Future<void>);
+        returnValue:
+            _i4.Future<_i2.AwardsIntervalDto>.value(_FakeAwardsIntervalDto_0(
+          this,
+          Invocation.method(
+            #call,
+            [],
+          ),
+        )),
+      ) as _i4.Future<_i2.AwardsIntervalDto>);
 }
