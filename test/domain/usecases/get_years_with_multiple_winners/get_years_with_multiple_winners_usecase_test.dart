@@ -57,6 +57,22 @@ void main() {
   });
 
   group('Throw cases', () {
+    test('Should throw a HandledException when json conversion failed',
+        () async {
+      when(
+        datasource(),
+      ).thenAnswer(
+        (_) async => yearlyWinnersCountMock.fromList(
+          yearlyWinnersCountMock.createYearlyWinnersCountListJsonWithError(),
+        ),
+      );
+
+      expect(
+        () async => await usecase(),
+        throwsA(isA<HandledException>()),
+      );
+    });
+
     test('Should throw a HandledGenericException', () async {
       when(
         datasource(),
