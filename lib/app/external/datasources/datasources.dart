@@ -2,3 +2,4 @@ export 'get_movies/get_movies_imp_datasource.dart';
 export 'get_years_with_multiple_winners/get_years_with_multiple_winners_imp_datasource.dart';
 export 'get_studios_with_win_count/get_studios_with_win_count_imp_datasource.dart';
 export 'get_max_min_win_interval_for_producers/get_max_min_win_interval_for_producers_imp_datasource.dart';
+export 'get_winner_per_year/get_winner_per_year_imp_datasource.dart';
