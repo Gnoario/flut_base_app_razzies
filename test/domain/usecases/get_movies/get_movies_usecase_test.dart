@@ -159,4 +159,62 @@ void main() {
       ).called(1);
     });
   });
+
+  group('Throws Cases', () {
+    test('Should return a HandledException when json conversion failed',
+        () async {
+      when(
+        datasource(
+          query: anyNamed('query'),
+        ),
+      ).thenAnswer(
+        (_) async => paginatedMoviesMock.fromJson(
+          paginatedMoviesMock.createPaginatedMoviesJsonWithError(),
+        ),
+      );
+
+      expect(
+        () async => await usecase(
+          pagination: paginatedMoviesMock.createPaginationMock(),
+          year: paginatedMoviesMock.createRandomYear(),
+          winner: paginatedMoviesMock.createRandomWinner(),
+        ),
+        throwsA(isA<HandledException>()),
+      );
+    });
+
+    test('Should throw a HandledGenericException', () async {
+      when(
+        datasource(
+          query: anyNamed('query'),
+        ),
+      ).thenThrow(Exception());
+
+      expect(
+        () async => await usecase(
+          pagination: paginatedMoviesMock.createPaginationMock(),
+          year: paginatedMoviesMock.createRandomYear(),
+          winner: paginatedMoviesMock.createRandomWinner(),
+        ),
+        throwsA(isA<HandledGenericException>()),
+      );
+    });
+
+    test('Should throw a HandledException', () async {
+      when(
+        datasource(
+          query: anyNamed('query'),
+        ),
+      ).thenThrow(HandledException());
+
+      expect(
+        () async => await usecase(
+          pagination: paginatedMoviesMock.createPaginationMock(),
+          year: paginatedMoviesMock.createRandomYear(),
+          winner: paginatedMoviesMock.createRandomWinner(),
+        ),
+        throwsA(isA<HandledException>()),
+      );
+    });
+  });
 }
