@@ -1,2 +1,3 @@
 export 'get_movies/get_movies_imp_repository.dart';
 export 'get_years_with_multiple_winners/get_years_with_multiple_winners_imp_repository.dart';
+export 'get_studios_with_win_count/get_studios_with_win_count_imp_repository.dart';

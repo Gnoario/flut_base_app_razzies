@@ -8,7 +8,7 @@ class GetYearsWithMultipleWinnersImpDatasource
 
   GetYearsWithMultipleWinnersImpDatasource(this._clientHttps);
 
-  final _endpoint = '?projection=years-with-multiple-winners';
+  final _endpoint = '/movies?projection=years-with-multiple-winners';
 
   @override
   Future<List<YearlyWinnersCountDto>> call() async {

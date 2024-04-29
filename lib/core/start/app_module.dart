@@ -29,6 +29,11 @@ class AppModule extends Module {
         i(),
       );
     });
+    i.addLazySingleton<GetStudiosWithWinCountImpDatasource>(() async {
+      return GetStudiosWithWinCountImpDatasource(
+        i(),
+      );
+    });
 
     //repositories
     i.addLazySingleton<GetMoviesImpRepository>(() async {
@@ -41,6 +46,11 @@ class AppModule extends Module {
         i(),
       );
     });
+    i.addLazySingleton<GetStudiosWithWinCountImpRepository>(() async {
+      return GetStudiosWithWinCountImpRepository(
+        i(),
+      );
+    });
 
     //usecases
     i.addLazySingleton<GetMoviesImpUsecase>(() async {
@@ -50,6 +60,11 @@ class AppModule extends Module {
     });
     i.addLazySingleton<GetYearsWithMultipleWinnersImpUsecase>(() async {
       return GetYearsWithMultipleWinnersImpUsecase(
+        i(),
+      );
+    });
+    i.addLazySingleton<GetStudiosWithWinCountImpUsecase>(() async {
+      return GetStudiosWithWinCountImpUsecase(
         i(),
       );
     });
