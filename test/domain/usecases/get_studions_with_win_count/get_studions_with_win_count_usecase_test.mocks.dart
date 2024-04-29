@@ -7,6 +7,8 @@ import 'dart:async' as _i3;
 
 import 'package:flut_base_app_razzies/app/data/datasources/get_studios_with_win_count/get_studios_with_win_count_datasource.dart'
     as _i2;
+import 'package:flut_base_app_razzies/app/domain/models/dtos/studio_win_count/studio_win_count_dto.dart'
+    as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -32,11 +34,12 @@ class MockGetStudiosWithWinCountDatasource extends _i1.Mock
   }
 
   @override
-  _i3.Future<List<dynamic>> call() => (super.noSuchMethod(
+  _i3.Future<List<_i4.StudioWinCountDto>> call() => (super.noSuchMethod(
         Invocation.method(
           #call,
           [],
         ),
-        returnValue: _i3.Future<List<dynamic>>.value(<dynamic>[]),
-      ) as _i3.Future<List<dynamic>>);
+        returnValue: _i3.Future<List<_i4.StudioWinCountDto>>.value(
+            <_i4.StudioWinCountDto>[]),
+      ) as _i3.Future<List<_i4.StudioWinCountDto>>);
 }
