@@ -34,6 +34,11 @@ class AppModule extends Module {
         i(),
       );
     });
+    i.addLazySingleton<GetMaxMinWinIntervalForProducersImpDatasource>(() async {
+      return GetMaxMinWinIntervalForProducersImpDatasource(
+        i(),
+      );
+    });
 
     //repositories
     i.addLazySingleton<GetMoviesImpRepository>(() async {
@@ -51,6 +56,11 @@ class AppModule extends Module {
         i(),
       );
     });
+    i.addLazySingleton<GetMaxMinWinIntervalForProducersImpRepository>(() async {
+      return GetMaxMinWinIntervalForProducersImpRepository(
+        i(),
+      );
+    });
 
     //usecases
     i.addLazySingleton<GetMoviesImpUsecase>(() async {
@@ -65,6 +75,11 @@ class AppModule extends Module {
     });
     i.addLazySingleton<GetStudiosWithWinCountImpUsecase>(() async {
       return GetStudiosWithWinCountImpUsecase(
+        i(),
+      );
+    });
+    i.addLazySingleton<GetMaxMinWinIntervalForProducersImpUsecase>(() async {
+      return GetMaxMinWinIntervalForProducersImpUsecase(
         i(),
       );
     });
