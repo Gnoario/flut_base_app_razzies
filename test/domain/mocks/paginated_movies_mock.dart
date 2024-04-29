@@ -3,13 +3,16 @@ import 'package:flut_base_app_razzies/app/domain/models/dtos/movie/movie_dto.dar
 import 'package:flut_base_app_razzies/app/domain/models/dtos/movie/paginated_movies_dto.dart';
 import 'package:flut_base_app_razzies/app/domain/models/dtos/pagination/pagination_dto.dart';
 
+import 'movie_mock.dart';
+
 class PaginatedMoviesMock {
+  final MovieMock _moviesMock = MovieMock();
   PaginatedMoviesDto create() {
     return PaginatedMoviesDto(
       pagination: createPaginationMock(),
       movies: List<MovieDto>.generate(
         faker.randomGenerator.integer(10),
-        (index) => _createMovieMock(),
+        (index) => _moviesMock.createMovieMock(),
       ),
     );
   }
@@ -35,23 +38,6 @@ class PaginatedMoviesMock {
     return faker.randomGenerator.boolean();
   }
 
-  MovieDto _createMovieMock() {
-    return MovieDto(
-      id: faker.randomGenerator.integer(100),
-      title: faker.lorem.word(),
-      year: createRandomYear(),
-      winner: createRandomWinner(),
-      producers: List<String>.generate(
-        faker.randomGenerator.integer(10),
-        (index) => faker.person.name(),
-      ),
-      studios: List<String>.generate(
-        faker.randomGenerator.integer(10),
-        (index) => faker.company.name(),
-      ),
-    );
-  }
-
   Map<String, dynamic> createPaginationJson() {
     return {
       'number': faker.randomGenerator.integer(10),
@@ -61,29 +47,12 @@ class PaginatedMoviesMock {
     };
   }
 
-  Map<String, dynamic> createMovieJson() {
-    return {
-      'id': faker.randomGenerator.integer(100),
-      'title': faker.lorem.word(),
-      'year': createRandomYear(),
-      'winner': createRandomWinner(),
-      'producers': List<String>.generate(
-        faker.randomGenerator.integer(10),
-        (index) => faker.person.name(),
-      ),
-      'studios': List<String>.generate(
-        faker.randomGenerator.integer(10),
-        (index) => faker.company.name(),
-      ),
-    };
-  }
-
   Map<String, dynamic> createPaginatedMoviesJson() {
     final pagination = createPaginationJson();
     return {
       'content': List<Map<String, dynamic>>.generate(
         faker.randomGenerator.integer(10),
-        (index) => createMovieJson(),
+        (index) => _moviesMock.createMovieJson(),
       ).toList(),
       ...pagination,
     };
@@ -93,7 +62,7 @@ class PaginatedMoviesMock {
     return {
       'content': List<Map<String, dynamic>>.generate(
         faker.randomGenerator.integer(10),
-        (index) => createMovieJson(),
+        (index) => _moviesMock.createMovieJson(),
       ).toList(),
     };
   }
