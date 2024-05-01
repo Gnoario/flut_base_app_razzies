@@ -66,4 +66,11 @@ class PaginatedMoviesMock {
       ).toList(),
     };
   }
+
+  List<Map<String, dynamic>> createMoviesJson() {
+    return List<Map<String, dynamic>>.generate(
+      faker.randomGenerator.integer(10, min: 1),
+      (index) => _moviesMock.createMovieJson(),
+    );
+  }
 }
