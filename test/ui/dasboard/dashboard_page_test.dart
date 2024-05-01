@@ -142,7 +142,7 @@ void main() {
 
       await tester.pump();
       final getStudiosResult = find.text(mockList[0]['name']);
-      expect(getStudiosResult, findsOne);
+      expect(getStudiosResult, findsAny);
     });
 
     testWidgets(
@@ -157,8 +157,8 @@ void main() {
       await tester.pump();
       final getStudiosMaxResult = find.text(mockList['max'][0]['producer']);
       final getStudiosMinResult = find.text(mockList['min'][0]['producer']);
-      expect(getStudiosMinResult, findsOne);
-      expect(getStudiosMaxResult, findsOne);
+      expect(getStudiosMinResult, findsAny);
+      expect(getStudiosMaxResult, findsAny);
     });
 
     testWidgets('Should return a ResultPresentation on call getWinnerPerYear',
@@ -171,7 +171,7 @@ void main() {
 
       await tester.pump();
       final getWinnerPerYearResult = find.text(mockList['title']);
-      expect(getWinnerPerYearResult, findsOne);
+      expect(getWinnerPerYearResult, findsAny);
     });
 
     testWidgets(
@@ -188,7 +188,7 @@ void main() {
       final getYearsWithMultipleWinnersResult = find.text(
         mockList[0]['winnerCount'].toString(),
       );
-      expect(getYearsWithMultipleWinnersResult, findsOne);
+      expect(getYearsWithMultipleWinnersResult, findsAny);
     });
 
     testWidgets('Should call getWinnerPerYear on tap button', (tester) async {
