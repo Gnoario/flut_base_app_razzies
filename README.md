@@ -7,7 +7,7 @@
 
 <div align="center">
   <h3>Razzies App</h3>
-  <p>Razzies APP is a mobile/web responsive application in development using Flutter, This application presents a reading of the list of nominees and winners in the Worst Film category of the Golden Raspberry Awards.
+  <p>Razzies APP is a mobile/web responsive application in developed using Flutter, This application presents a reading of the list of nominees and winners in the Worst Film category of the Golden Raspberry Awards.
 </div>
 
 <br />
@@ -16,8 +16,8 @@
 1. **[Requirements 📝](#requirements-)**
 2. **[Developing 👷](#developing-)**
 3. **[Releasing 🏷️](#releasing-)**
-4. **[Architecture Diagram ⚙️](#architecturediagram-)**
-5. **[App Images 📱](#appimages-)**
+4. **[Architecture Diagram ⚙️](#architecture-diagram-)**
+5. **[App Images 📱](#app-images-)**
 
 ## Requirements 📝
 #### To execute this project it is necessary to have the following dependencies installed and configured on your machine:
