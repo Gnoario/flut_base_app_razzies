@@ -95,6 +95,7 @@ class ListMovieWinnersByYearDatatable extends StatelessWidget {
                         ),
                         SizedBox(width: context.spacer.value.xs),
                         FloatingActionButton(
+                          heroTag: null,
                           mini: true,
                           backgroundColor:
                               context.appColors.brandSecondary.blue,
