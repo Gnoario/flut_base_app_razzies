@@ -88,19 +88,23 @@ class _BasePageState extends State<BasePage> {
     return Flexible(
       child: Material(
         color: Colors.transparent,
-        child: ListTile(
-          contentPadding: EdgeInsets.zero,
-          titleAlignment: ListTileTitleAlignment.center,
-          title: Padding(
-            padding: isResponsiveMode
-                ? context.spacer.bottom.xs
-                : context.spacer.left.xs,
-            child: BaseText(
-              text: title,
-              textAlign: isResponsiveMode ? TextAlign.center : TextAlign.start,
-              color: widget.currentRoute == route
-                  ? context.appColors.brandSecondary.greyBlue
-                  : null,
+        child: InkWell(
+          child: SizedBox(
+            height: 50,
+            child: Align(
+              alignment:
+                  isResponsiveMode ? Alignment.center : Alignment.centerLeft,
+              child: Padding(
+                padding: context.spacer.x.xs,
+                child: BaseText(
+                  text: title,
+                  textAlign:
+                      isResponsiveMode ? TextAlign.center : TextAlign.start,
+                  color: widget.currentRoute == route
+                      ? context.appColors.brandSecondary.greyBlue
+                      : null,
+                ),
+              ),
             ),
           ),
           onTap: () {

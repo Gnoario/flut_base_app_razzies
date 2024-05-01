@@ -1,8 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class AppRoutes {
   static goToRoute(String route) async {
-    return Modular.to.pushNamed(route);
+    return kIsWeb ? Modular.to.navigate(route) : Modular.to.pushNamed(route);
   }
 
   static void pop<T extends Object>([T? result]) {

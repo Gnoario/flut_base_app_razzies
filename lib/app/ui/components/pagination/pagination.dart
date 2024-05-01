@@ -132,6 +132,10 @@ class _PaginationState extends State<Pagination> {
     return _buildCirclePage(index);
   }
 
+  String generateHeroTag(String baseTag) {
+    return '$baseTag-${UniqueKey().toString()}';
+  }
+
   Widget _buildCircleAction({bool isBack = false}) {
     final theme = context.appColors;
     final enabled = widget.enabled &&
@@ -143,6 +147,7 @@ class _PaginationState extends State<Pagination> {
         child: AbsorbPointer(
           absorbing: !enabled,
           child: FloatingActionButton(
+            heroTag: generateHeroTag('paginationButton'),
             mini: true,
             elevation: 0,
             backgroundColor:
@@ -181,6 +186,7 @@ class _PaginationState extends State<Pagination> {
         child: AbsorbPointer(
           absorbing: !enabled,
           child: FloatingActionButton(
+            heroTag: generateHeroTag('paginationButton'),
             elevation: 0,
             mini: true,
             backgroundColor: isCurrentPage ? selectColor : theme.neutral.grey1,
