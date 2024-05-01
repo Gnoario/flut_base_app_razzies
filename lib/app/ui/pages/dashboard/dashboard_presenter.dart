@@ -21,5 +21,5 @@ abstract class DashboardPresenter implements Disposable, Listenable {
   Future<void> getStudiosWithWinCount();
   Future<void> getMaxMinWinIntervalForProducers();
   Future<void> getWinnerPerYear();
-  Future<void> validateYear(String? year);
+  validateYear(String? year);
 }

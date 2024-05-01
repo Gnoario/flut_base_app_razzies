@@ -182,7 +182,7 @@ class DashboardPresenterImpl implements DashboardPresenter {
   }
 
   @override
-  Future<void> validateYear(String? year) async {
+  validateYear(String? year) {
     if ((year ?? '').isEmpty) {
       isValidYear = false;
       _yearErrorController.add('Year is required');

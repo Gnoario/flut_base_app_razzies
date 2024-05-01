@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 
 class LoggersInterceptors extends InterceptorsWrapper {
   @override
@@ -71,9 +72,12 @@ class LoggersInterceptors extends InterceptorsWrapper {
     super.onRequest(options, handler);
   }
 
-  _log({String? tag, String? message}) => log(
-        message ?? '',
-        name: tag?.toUpperCase() ?? ' ',
-        time: DateTime.now(),
-      );
+  _log({String? tag, String? message}) => kIsWeb
+      // ignore: avoid_print
+      ? print('[$tag] $message at ${DateTime.now()}')
+      : log(
+          message ?? '',
+          name: tag?.toUpperCase() ?? ' ',
+          time: DateTime.now(),
+        );
 }

@@ -26,6 +26,10 @@ void main() {
     mock = MovieMock();
   });
 
+  setUp(() {
+    reset(datasource);
+  });
+
   group('Success Cases', () {
     test('Should return a MovieDto normally', () async {
       final movieMock = mock.createMovieMock();

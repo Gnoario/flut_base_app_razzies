@@ -24,4 +24,8 @@ class PaginatedMoviesDto {
           .toList(),
     );
   }
+
+  List<Map<String, dynamic>> toJsonMoviesList() {
+    return movies.map((e) => e.toJson()).toList();
+  }
 }

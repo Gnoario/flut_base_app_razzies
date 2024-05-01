@@ -154,13 +154,9 @@ class _DashboardPageState extends State<DashboardPage> {
                               return ListMovieWinnersByYearDatatable(
                                 isLoading: isLoading,
                                 source: winnerPerYear?.payload ?? [],
-                                onTap: () {
-                                  presenter.getWinnerPerYear();
-                                },
+                                onTap: presenter.getWinnerPerYear,
                                 error: yearError,
-                                onChanged: (value) {
-                                  presenter.validateYear(value);
-                                },
+                                onChanged: presenter.validateYear,
                               );
                             },
                           );

@@ -330,16 +330,18 @@ class _ResponsiveDatatableState extends State<ResponsiveDatatable> {
       padding:
           widget.itemPadding + (header.additionalPadding ?? EdgeInsets.zero),
       alignment: headerAlignSwitch(header.textAlign),
-      child: Wrap(
-        crossAxisAlignment: WrapCrossAlignment.center,
-        children: [
-          BaseText(
-            text: header.text,
-            textAlign: header.textAlign,
-            fontWeight: FontWeight.w700,
-          ),
-        ],
-      ),
+      child: header.title != null
+          ? header.title!(header.text)
+          : Wrap(
+              crossAxisAlignment: WrapCrossAlignment.center,
+              children: [
+                BaseText(
+                  text: header.text,
+                  textAlign: header.textAlign,
+                  fontWeight: FontWeight.w700,
+                ),
+              ],
+            ),
     );
   }
 

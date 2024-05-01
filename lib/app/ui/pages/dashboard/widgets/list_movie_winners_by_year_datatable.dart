@@ -89,12 +89,8 @@ class ListMovieWinnersByYearDatatable extends StatelessWidget {
                     child: Row(
                       children: [
                         Expanded(
-                          child: TextFormField(
+                          child: BasicField(
                             onChanged: onChanged,
-                            decoration: const InputDecoration(
-                              labelText: 'Search',
-                              border: OutlineInputBorder(),
-                            ),
                           ),
                         ),
                         SizedBox(width: context.spacer.value.xs),
