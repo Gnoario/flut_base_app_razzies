@@ -51,8 +51,9 @@ class _BasePageState extends State<BasePage> {
     return [
       Expanded(
         child: Container(
-          padding: context.spacer.all.xs,
+          padding: context.spacer.y.xs,
           height: double.infinity,
+          width: double.infinity,
           color: context.appColors.brandSecondary.secondary,
           child: _buildOptions(),
         ),
@@ -84,20 +85,30 @@ class _BasePageState extends State<BasePage> {
   }
 
   _buildOption({required String title, required String route}) {
-    return Expanded(
-      child: ListTile(
-        contentPadding: EdgeInsets.zero,
-        title: BaseText(
-          text: title,
-          color: widget.currentRoute == route
-              ? context.appColors.brandSecondary.greyBlue
-              : null,
+    return Flexible(
+      child: Material(
+        color: Colors.transparent,
+        child: ListTile(
+          contentPadding: EdgeInsets.zero,
+          titleAlignment: ListTileTitleAlignment.center,
+          title: Padding(
+            padding: isResponsiveMode
+                ? context.spacer.bottom.xs
+                : context.spacer.left.xs,
+            child: BaseText(
+              text: title,
+              textAlign: isResponsiveMode ? TextAlign.center : TextAlign.start,
+              color: widget.currentRoute == route
+                  ? context.appColors.brandSecondary.greyBlue
+                  : null,
+            ),
+          ),
+          onTap: () {
+            if (widget.currentRoute != route) {
+              AppRoutes.goToRoute(route);
+            }
+          },
         ),
-        onTap: () {
-          if (widget.currentRoute != route) {
-            AppRoutes.goToRoute(route);
-          }
-        },
       ),
     );
   }
