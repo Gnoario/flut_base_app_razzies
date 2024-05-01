@@ -50,11 +50,17 @@ class AwardsIntervalMock {
   Map<String, dynamic> createAwardsIntervalJson() {
     return {
       'max': List.generate(
-        faker.randomGenerator.integer(10),
+        faker.randomGenerator.integer(
+          10,
+          min: 1,
+        ),
         (index) => createProducerAwardsIntervalJson(),
       ).toList(),
       'min': List.generate(
-        faker.randomGenerator.integer(10),
+        faker.randomGenerator.integer(
+          10,
+          min: 1,
+        ),
         (index) => createProducerAwardsIntervalJson(),
       ).toList(),
     };

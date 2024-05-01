@@ -25,4 +25,15 @@ class MovieDto {
       producers: List<String>.from(json['producers']),
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'title': title,
+      'year': year,
+      'winner': winner,
+      'studios': studios,
+      'producers': producers,
+    };
+  }
 }

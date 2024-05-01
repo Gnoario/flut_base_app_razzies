@@ -11,7 +11,7 @@ class YearlyWinnersCountMock {
 
   List<YearlyWinnersCountDto> createList() {
     return List.generate(
-      faker.randomGenerator.integer(10),
+      faker.randomGenerator.integer(10, min: 1),
       (index) => create(),
     );
   }
@@ -44,7 +44,7 @@ class YearlyWinnersCountMock {
 
   List<Map<String, dynamic>> createYearlyWinnersCountListJson() {
     return List.generate(
-      faker.randomGenerator.integer(10),
+      faker.randomGenerator.integer(10, min: 1),
       (index) => _createYearlyWinnersCountJson(),
     );
   }

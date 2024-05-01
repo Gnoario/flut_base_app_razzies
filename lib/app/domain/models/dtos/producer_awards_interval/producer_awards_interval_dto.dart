@@ -19,4 +19,13 @@ class ProducerAwardsIntervalDto {
       followingWin: json['followingWin'],
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'producer': producer,
+      'interval': interval,
+      'previousWin': previousWin,
+      'followingWin': followingWin,
+    };
+  }
 }

@@ -1,13 +1,14 @@
 import 'package:flut_base_app_razzies/app/data/repositories/repositories.dart';
 import 'package:flut_base_app_razzies/app/domain/usecases/usecases.dart';
 import 'package:flut_base_app_razzies/app/external/datasources/datasources.dart';
-import 'package:flut_base_app_razzies/app/presentation/presenters/dasboard_presenter/dashboard_presenter_impl.dart';
 import 'package:flut_base_app_razzies/app/ui/pages/dashboard/dashboard_page.dart';
 import 'package:flut_base_app_razzies/app/ui/pages/dashboard/dashboard_presenter.dart';
 import 'package:flut_base_app_razzies/core/services/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-class AppModule extends Module {
+import 'dashboard_presenter_spy.dart';
+
+class AppModuleSpy extends Module {
   @override
   void binds(i) {
     //services
@@ -72,7 +73,7 @@ class AppModule extends Module {
 
     //presenters
     i.addLazySingleton<DashboardPresenter>(
-      DashboardPresenterImpl.new,
+      DashboardPresenterSpy.new,
       config: BindConfig(),
     );
   }

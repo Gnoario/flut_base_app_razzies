@@ -11,7 +11,7 @@ class StudioWinCountMock {
 
   List<StudioWinCountDto> createList() {
     return List.generate(
-      faker.randomGenerator.integer(10),
+      faker.randomGenerator.integer(10, min: 1),
       (index) => create(),
     );
   }
@@ -40,7 +40,7 @@ class StudioWinCountMock {
 
   List<Map<String, dynamic>> createStudioWinCountListJson() {
     return List.generate(
-      faker.randomGenerator.integer(10),
+      faker.randomGenerator.integer(10, min: 1),
       (index) => _createStudioWinCountJson(),
     );
   }

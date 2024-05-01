@@ -13,7 +13,7 @@ class GetYearsWithMultipleWinnersImpDatasource
   @override
   Future<List<YearlyWinnersCountDto>> call() async {
     final response = await _clientHttps.get(_endpoint);
-    final data = response.data as List;
+    final data = response.data['years'] as List;
     return data.map((e) => YearlyWinnersCountDto.fromJson(e)).toList();
   }
 }

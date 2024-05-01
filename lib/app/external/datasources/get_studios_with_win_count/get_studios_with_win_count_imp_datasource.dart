@@ -14,7 +14,7 @@ class GetStudiosWithWinCountImpDatasource
   @override
   Future<List<StudioWinCountDto>> call() async {
     final result = await _clientHttps.get(_endpoint);
-    final data = result.data as List;
+    final data = result.data['studios'] as List;
     return data.map((e) => StudioWinCountDto.fromJson(e)).toList();
   }
 }

@@ -3,3 +3,10 @@ export 'get_years_with_multiple_winners/get_years_with_multiple_winners_imp_repo
 export 'get_studios_with_win_count/get_studios_with_win_count_imp_repository.dart';
 export 'get_max_min_win_interval_for_producers/get_max_min_win_interval_for_producers_imp_repository.dart';
 export 'get_winner_per_year/get_winner_per_year_imp_repository.dart';
+
+//repository interfaces
+export 'package:flut_base_app_razzies/app/domain/repositories/get_max_min_win_interval_for_producers/get_max_min_win_interval_for_producers_repository.dart';
+export 'package:flut_base_app_razzies/app/domain/repositories/get_movies/get_movies_repository.dart';
+export 'package:flut_base_app_razzies/app/domain/repositories/get_studios_with_win_count/get_studios_with_win_count_repository.dart';
+export 'package:flut_base_app_razzies/app/domain/repositories/get_winner_per_year/get_winner_per_year_repository.dart';
+export 'package:flut_base_app_razzies/app/domain/repositories/get_years_with_multiple_winners/get_years_with_multiple_winners_repository.dart';

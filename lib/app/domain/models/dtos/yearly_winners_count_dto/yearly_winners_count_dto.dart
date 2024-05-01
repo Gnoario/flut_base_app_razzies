@@ -12,4 +12,11 @@ class YearlyWinnersCountDto {
       winnerCount: json['winnerCount'],
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'year': year,
+      'winnerCount': winnerCount,
+    };
+  }
 }

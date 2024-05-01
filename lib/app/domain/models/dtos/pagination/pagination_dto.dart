@@ -19,4 +19,13 @@ class PaginationDto {
       size: json['size'],
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'totalPages': totalPages,
+      'totalElements': totalElements,
+      'number': number,
+      'size': size,
+    };
+  }
 }
