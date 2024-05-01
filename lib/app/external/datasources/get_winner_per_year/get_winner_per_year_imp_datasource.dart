@@ -15,6 +15,7 @@ class GetWinnerPerYearImpDatasource implements GetWinnerPerYearDatasource {
     required int year,
   }) async {
     final result = await _clientHttps.get('$_endpoint&year=$year');
-    return MovieDto.fromJson(result.data);
+    final data = result.data as List;
+    return MovieDto.fromJson(data.first);
   }
 }
