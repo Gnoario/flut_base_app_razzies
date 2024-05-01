@@ -7,7 +7,7 @@
 
 <div align="center">
   <h3>Razzies App</h3>
-  <p>Razzies APP is a mobile/web responsive application in developed using Flutter, This application presents a reading of the list of nominees and winners in the Worst Film category of the Golden Raspberry Awards.
+  <p>Razzies APP is a mobile/web responsive application developed using Flutter, This application presents a reading of the list of nominees and winners in the Worst Film category of the Golden Raspberry Awards.
 </div>
 
 <br />
