@@ -1,6 +1,9 @@
 import 'package:flut_base_app_razzies/app/data/repositories/repositories.dart';
 import 'package:flut_base_app_razzies/app/domain/usecases/usecases.dart';
 import 'package:flut_base_app_razzies/app/external/datasources/datasources.dart';
+import 'package:flut_base_app_razzies/app/presentation/presenters/dasboard_presenter/dashboard_presenter_impl.dart';
+import 'package:flut_base_app_razzies/app/ui/pages/dashboard/dashboard_page.dart';
+import 'package:flut_base_app_razzies/app/ui/pages/dashboard/dashboard_presenter.dart';
 import 'package:flut_base_app_razzies/core/services/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -8,7 +11,7 @@ class AppModule extends Module {
   @override
   void binds(i) {
     //services
-    i.addLazySingleton<ClientHttps>(() async {
+    i.addLazySingleton<ClientHttps>(() {
       return ClientHttps(
         interceptors: [
           ErrorHandleInterceptor(),
@@ -19,87 +22,63 @@ class AppModule extends Module {
     });
 
     //datasources
-    i.addLazySingleton<GetMoviesImpDatasource>(() async {
-      return GetMoviesImpDatasource(
-        i(),
-      );
-    });
-    i.addLazySingleton<GetYearsWithMultipleWinnersImpDatasource>(() async {
-      return GetYearsWithMultipleWinnersImpDatasource(
-        i(),
-      );
-    });
-    i.addLazySingleton<GetStudiosWithWinCountImpDatasource>(() async {
-      return GetStudiosWithWinCountImpDatasource(
-        i(),
-      );
-    });
-    i.addLazySingleton<GetMaxMinWinIntervalForProducersImpDatasource>(() async {
-      return GetMaxMinWinIntervalForProducersImpDatasource(
-        i(),
-      );
-    });
-    i.addLazySingleton<GetWinnerPerYearImpDatasource>(() async {
-      return GetWinnerPerYearImpDatasource(
-        i(),
-      );
-    });
+    i.addLazySingleton<GetMoviesDatasource>(GetMoviesImpDatasource.new);
+    i.addLazySingleton<GetYearsWithMultipleWinnersDatasource>(
+      GetYearsWithMultipleWinnersImpDatasource.new,
+    );
+    i.addLazySingleton<GetStudiosWithWinCountDatasource>(
+      GetStudiosWithWinCountImpDatasource.new,
+    );
+    i.addLazySingleton<GetMaxMinWinIntervalForProducersDatasource>(
+      GetMaxMinWinIntervalForProducersImpDatasource.new,
+    );
+    i.addLazySingleton<GetWinnerPerYearDatasource>(
+      GetWinnerPerYearImpDatasource.new,
+    );
 
     //repositories
-    i.addLazySingleton<GetMoviesImpRepository>(() async {
-      return GetMoviesImpRepository(
-        i(),
-      );
-    });
-    i.addLazySingleton<GetYearsWithMultipleWinnersImpRepository>(() async {
-      return GetYearsWithMultipleWinnersImpRepository(
-        i(),
-      );
-    });
-    i.addLazySingleton<GetStudiosWithWinCountImpRepository>(() async {
-      return GetStudiosWithWinCountImpRepository(
-        i(),
-      );
-    });
-    i.addLazySingleton<GetMaxMinWinIntervalForProducersImpRepository>(() async {
-      return GetMaxMinWinIntervalForProducersImpRepository(
-        i(),
-      );
-    });
-    i.addLazySingleton<GetWinnerPerYearImpRepository>(() async {
-      return GetWinnerPerYearImpRepository(
-        i(),
-      );
-    });
+    i.addLazySingleton<GetMoviesRepository>(
+      GetMoviesImpRepository.new,
+    );
+    i.addLazySingleton<GetYearsWithMultipleWinnersRepository>(
+      GetYearsWithMultipleWinnersImpRepository.new,
+    );
+    i.addLazySingleton<GetStudiosWithWinCountRepository>(
+      GetStudiosWithWinCountImpRepository.new,
+    );
+    i.addLazySingleton<GetMaxMinWinIntervalForProducersRepository>(
+      GetMaxMinWinIntervalForProducersImpRepository.new,
+    );
+    i.addLazySingleton<GetWinnerPerYearRepository>(
+      GetWinnerPerYearImpRepository.new,
+    );
 
     //usecases
-    i.addLazySingleton<GetMoviesImpUsecase>(() async {
-      return GetMoviesImpUsecase(
-        i(),
-      );
-    });
-    i.addLazySingleton<GetYearsWithMultipleWinnersImpUsecase>(() async {
-      return GetYearsWithMultipleWinnersImpUsecase(
-        i(),
-      );
-    });
-    i.addLazySingleton<GetStudiosWithWinCountImpUsecase>(() async {
-      return GetStudiosWithWinCountImpUsecase(
-        i(),
-      );
-    });
-    i.addLazySingleton<GetMaxMinWinIntervalForProducersImpUsecase>(() async {
-      return GetMaxMinWinIntervalForProducersImpUsecase(
-        i(),
-      );
-    });
-    i.addLazySingleton<GetWinnerPerYearImpUsecase>(() async {
-      return GetWinnerPerYearImpUsecase(
-        i(),
-      );
-    });
+    i.addLazySingleton<GetMoviesUsecase>(
+      GetMoviesImpUsecase.new,
+    );
+    i.addLazySingleton<GetYearsWithMultipleWinnersUsecase>(
+      GetYearsWithMultipleWinnersImpUsecase.new,
+    );
+    i.addLazySingleton<GetStudiosWithWinCountUsecase>(
+      GetStudiosWithWinCountImpUsecase.new,
+    );
+    i.addLazySingleton<GetMaxMinWinIntervalForProducersUsecase>(
+      GetMaxMinWinIntervalForProducersImpUsecase.new,
+    );
+    i.addLazySingleton<GetWinnerPerYearUsecase>(
+      GetWinnerPerYearImpUsecase.new,
+    );
+
+    //presenters
+    i.addLazySingleton<DashboardPresenter>(
+      DashboardPresenterImpl.new,
+      config: BindConfig(),
+    );
   }
 
   @override
-  void routes(r) {}
+  void routes(r) {
+    r.child('/', child: (context) => const DashboardPage());
+  }
 }

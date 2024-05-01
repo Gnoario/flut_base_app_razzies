@@ -11,7 +11,6 @@ class AppRoot extends StatelessWidget {
     return MaterialApp.router(
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,
-      routerConfig: Modular.routerConfig,
       debugShowCheckedModeBanner: false,
       title: 'Razzies',
       builder: (context, child) {
