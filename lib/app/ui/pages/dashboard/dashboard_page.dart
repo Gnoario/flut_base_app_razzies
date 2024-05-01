@@ -24,12 +24,6 @@ class _DashboardPageState extends State<DashboardPage> {
   }
 
   @override
-  void dispose() {
-    presenter.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return BasePage(
       currentRoute: '/',

@@ -16,6 +16,7 @@ class ListMoviesPage extends StatefulWidget {
 
 class _ListMoviesPageState extends State<ListMoviesPage> {
   final presenter = Modular.get<ListMoviesPresenter>();
+
   @override
   Widget build(BuildContext context) {
     return BasePage(
