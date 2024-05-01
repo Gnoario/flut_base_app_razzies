@@ -3,10 +3,12 @@ import 'package:flut_base_app_razzies/app/domain/usecases/usecases.dart';
 import 'package:flut_base_app_razzies/app/external/datasources/datasources.dart';
 import 'package:flut_base_app_razzies/app/ui/pages/dashboard/dashboard_page.dart';
 import 'package:flut_base_app_razzies/app/ui/pages/dashboard/dashboard_presenter.dart';
+import 'package:flut_base_app_razzies/app/ui/pages/list_movies/list_movies_page.dart';
+import 'package:flut_base_app_razzies/app/ui/pages/list_movies/list_movies_presenter.dart';
 import 'package:flut_base_app_razzies/core/services/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'dashboard_presenter_spy.dart';
+import 'mocks.dart';
 
 class AppModuleSpy extends Module {
   @override
@@ -76,10 +78,15 @@ class AppModuleSpy extends Module {
       DashboardPresenterSpy.new,
       config: BindConfig(),
     );
+    i.addLazySingleton<ListMoviesPresenter>(
+      ListMoviesPresenterSpy.new,
+      config: BindConfig(),
+    );
   }
 
   @override
   void routes(r) {
     r.child('/', child: (context) => const DashboardPage());
+    r.child('/list-movies', child: (context) => const ListMoviesPage());
   }
 }
