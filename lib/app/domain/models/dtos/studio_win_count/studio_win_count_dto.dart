@@ -12,4 +12,11 @@ class StudioWinCountDto {
       winCount: json['winCount'],
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'winCount': winCount,
+    };
+  }
 }

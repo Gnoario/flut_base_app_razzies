@@ -16,4 +16,11 @@ class AwardsIntervalDto {
       min: min.map((e) => ProducerAwardsIntervalDto.fromJson(e)).toList(),
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'max': max.map((e) => e.toJson()).toList(),
+      'min': min.map((e) => e.toJson()).toList(),
+    };
+  }
 }
