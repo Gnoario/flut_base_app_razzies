@@ -1,7 +1,7 @@
 <p align="center">
   <row>
     <img src="https://badgen.net/badge/types/flutter/blue?icon=flutter" alt="flutter app"/>
-    <img src="https://badgen.net/badge/platform/android,ios?list=|" alt="flutter app"/>
+    <img src="https://badgen.net/badge/platform/android,ios,web?list=|" alt="flutter app"/>
   </row>
 </p>
 
