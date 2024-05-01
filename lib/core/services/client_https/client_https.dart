@@ -9,7 +9,6 @@ class ClientHttps extends ClientHttpsBaseImpl {
   }) : super(
           BaseOptions(
             baseUrl: BaseStringHelper.get().baseUrl,
-            sendTimeout: BaseStringHelper.get().timeout,
             connectTimeout: BaseStringHelper.get().timeout,
             receiveTimeout: BaseStringHelper.get().timeout,
           ),
