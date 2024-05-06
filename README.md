@@ -58,7 +58,6 @@
       - fix/modules-exception
       - docs/git-flow
       - chore/dependencies
-  - Merge Request
 
 ## Releasing 🏷️
 
