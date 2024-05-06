@@ -39,6 +39,26 @@
 3. Open any mobile device emulator of your choice our selected the chrome application.
 4. Execute your app with `flutter run` or F5 (debug mode), if you want execute in specific platform execute `flutter run -d {device}` (e.g., chrome), with you want execute in specific port use `flutter run -d web-server --web-port=8080` and type http://localhost:8080 in any navigator.
 
+#### Git Flow
+- Commits are done in **EN-US** , following [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) format. For example:
+  - feat(scope): description of new feature
+  - refactor(scope): description of activity
+  - docs(scope): description of document added
+  - fix(scope): description of fixed function
+  - chore(scope): other files (e.g., generated files)
+  - test(scope): description of test
+- Branch:
+  - Fixed branches
+    - main: contains all the code that will be delivered to the client, already tested and passed through all quality stages.
+    - develop: contains the entire workflow that will occur throughout the project, meaning all work from other branches should go into develop.
+  - Creation of branches
+    - To create a new branch, it's necessary to create it from a task that will be done. For example:
+      - feat/dashboard-integration
+      - refactor/movies-usecase
+      - fix/modules-exception
+      - docs/git-flow
+      - chore/dependencies
+
 ## Releasing 🏷️
 
 1. [Clone this repo](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html) with git.
